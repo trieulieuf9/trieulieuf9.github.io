@@ -37,11 +37,11 @@ $(document).on('ready', function () {
 	var dark = true;
 	var confetti =[];
 
-	var bacon_full = new Image;
-	var bacon_top_left = new Image;
-	var bacon_top_right = new Image;
-	var bacon_bottom_left = new Image;
-	var bacon_bottom_right = new Image;
+	var lotus1 = new Image;
+	var lotus2 = new Image;
+	var rose1 = new Image;
+	var rose2 = new Image;
+
 	var bacons = [];
 	var bacon_parts = [];
 	var flashes = [];
@@ -149,26 +149,26 @@ $(document).on('ready', function () {
 		}, 4000);
 	});
 
-	$('canvas').on('click', function (e) {
-		var mouse_x = e.pageX;
-		var mouse_y = e.pageY;
+	// $('canvas').on('click', function (e) {
+	// 	var mouse_x = e.pageX;
+	// 	var mouse_y = e.pageY;
 
-		_.each(bacons, function (bacon, i) {
-			if (mouse_x > bacon.x && mouse_x < bacon.x + 30 && 
-				mouse_y > bacon.y && mouse_y < bacon.y + 144) {
+	// 	_.each(bacons, function (bacon, i) {
+	// 		if (mouse_x > bacon.x && mouse_x < bacon.x + 30 && 
+	// 			mouse_y > bacon.y && mouse_y < bacon.y + 144) {
 
-				bacon_parts.push(new BaconPart(bacon.x, bacon.y, bacon_top_left));
-				bacon_parts.push(new BaconPart(bacon.x + 15, bacon.y, bacon_top_right));
-				bacon_parts.push(new BaconPart(bacon.x, bacon.y + 72, bacon_bottom_left));
-				bacon_parts.push(new BaconPart(bacon.x + 15, bacon.y + 72, bacon_bottom_right));
+	// 			bacon_parts.push(new BaconPart(bacon.x, bacon.y, bacon_top_left));
+	// 			bacon_parts.push(new BaconPart(bacon.x + 15, bacon.y, bacon_top_right));
+	// 			bacon_parts.push(new BaconPart(bacon.x, bacon.y + 72, bacon_bottom_left));
+	// 			bacon_parts.push(new BaconPart(bacon.x + 15, bacon.y + 72, bacon_bottom_right));
 
-				flashes.push(new Flash(mouse_x, mouse_y));
-				explode_sound.play();
+	// 			flashes.push(new Flash(mouse_x, mouse_y));
+	// 			explode_sound.play();
 
-				bacons[i] = new Bacon();
-			}
-		});
-	});
+	// 			bacons[i] = new Bacon();
+	// 		}
+	// 	});
+	// });
 
 	function paintScreen() {
 		ctx.clearRect(0,0,canvas.width, canvas.height);
@@ -226,7 +226,7 @@ $(document).on('ready', function () {
 		}
 
 		hooray_sound.play();
-		makeConfetti();
+		makeConfetti(8);
 	}
 
 	function makeConfetti(times) {
@@ -293,21 +293,18 @@ $(document).on('ready', function () {
 	};
 
 	function chooseBaconType() {
-		var choice = randomInt(1, 5)
+		var choice = randomInt(1, 4)
 		if (choice == 1) {
-			return bacon_full
-		} 
+			return lotus1;
+		}
 		if (choice == 2) {
-			return bacon_top_left
+			return lotus2;
 		}
 		if (choice == 3) {
-			return bacon_top_right
+			return rose1;
 		}
 		if (choice == 4) {
-			return bacon_bottom_left
-		}
-		if (choice == 5) {
-			return bacon_bottom_right
+			return rose2;
 		}
 	}
 
@@ -365,11 +362,10 @@ $(document).on('ready', function () {
 		}
 	}
 
-	bacon_full.src = '/images/hw_bacon_full.png';
-	bacon_top_left.src = '/images/hw_bacon_1.png';
-	bacon_top_right.src = '/images/hw_bacon_2.png';
-	bacon_bottom_left.src = '/images/hw_bacon_3.png';
-	bacon_bottom_right.src = '/images/hw_bacon_4.png';
+	lotus1.src = '/images/lotus-70x70.png';
+	lotus2.src = '/images/lotus-81x123.png';
+	rose1.src = '/images/pink-rose-39x84.png';
+	rose2.src = '/images/pink-rose-55x89.png';
 
 	function randomColor() {
 		return '#' + Math.random().toString(16).slice(2, 8);
