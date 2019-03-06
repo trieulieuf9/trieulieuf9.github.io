@@ -219,7 +219,7 @@ $(document).on('ready', function () {
 	function releaseConfetti() {
 		if (dark) {
 			$('#dark').hide();
-			$('body').css('background-color', 'white');
+			$('body').css('background-color', 'pink');
 			$('#party').show();
 			$('#pull_me').hide();
 			dark = false;
@@ -284,12 +284,32 @@ $(document).on('ready', function () {
 		this.x = randomInt(0, canvas.width);
 		this.y = -145;
 		this.vy = randomInt(2,5);
+		this.baconType = chooseBaconType();
 
 		this.draw = function () {
-			ctx.drawImage(bacon_full, this.x, this.y);
+			ctx.drawImage(this.baconType, this.x, this.y);
 			this.y += this.vy;
 		}
 	};
+
+	function chooseBaconType() {
+		var choice = randomInt(1, 5)
+		if (choice == 1) {
+			return bacon_full
+		} 
+		if (choice == 2) {
+			return bacon_top_left
+		}
+		if (choice == 3) {
+			return bacon_top_right
+		}
+		if (choice == 4) {
+			return bacon_bottom_left
+		}
+		if (choice == 5) {
+			return bacon_bottom_right
+		}
+	}
 
 	function BaconPart(x, y, img) {
 		this.x = x;

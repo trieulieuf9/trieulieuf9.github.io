@@ -301,7 +301,7 @@ canvas {
 	cursor: pointer;
 }
 
-#jen_container {
+#billboard_container {
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -365,8 +365,8 @@ canvas {
 .blink {
 	margin-bottom: 20px;
 	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
-	font-size: 100px;
-	line-height: 100px;
+	font-size: 85px;
+	line-height: 85px;
 	color: #ff9933;
 	-webkit-animation: blink 0.7s infinite;
 	-moz-animation: blink 0.7s infinite;
