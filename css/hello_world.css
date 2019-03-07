@@ -112,7 +112,7 @@ canvas {
 #talking_dude_container {
 	position: absolute;
 	top: 150px;
-	left: 10%;
+	left: 0%;
 	width: 560px;
 	margin: auto;
 	cursor: pointer;
