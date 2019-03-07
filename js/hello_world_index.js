@@ -224,6 +224,7 @@ $(document).on('ready', function () {
 			$('body').css('background-color', 'pink');
 			$('#party').show();
 			$('#pull_me').hide();
+			$('#rope_container').hide();
 			dark = false;
 		}
 		hooray_sound.play();
