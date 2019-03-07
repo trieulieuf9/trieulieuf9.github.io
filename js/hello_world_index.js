@@ -26,11 +26,12 @@ $(document).on('ready', function () {
 	var h = window.innerHeight;
 	var w = window.innerWidth;
 	var hooray_sound = new Howl({
-			urls: ["/audio/yay" + '.mp3', "/audio/yay" + '.ogg']
+			urls: ["/audio/yay" + '.mp3', "/audio/yay" + '.ogg'],
+			volume: 1.8
 		});
-	var explode_sound = new Howl({
-			urls: ["/audio/aggressive" + '.mp3', "/audio/aggressive" + '.ogg'],
-			volume: 0.7
+
+	var a_little_love_sound = new Howl({
+			urls: ["/audio/a-little-love-compressed" + '.mp3', "/audio/a-little-love-compressed" + '.ogg']
 		});
 	var sushi_animations = [ 'shake', 'hop', 'spin','grow', 'hooray' ];
 	var jen_animations = [ 'jen_dangle', 'jen_jump', 'jen_flip', 'spin'];
@@ -217,6 +218,7 @@ $(document).on('ready', function () {
 	}
 
 	function releaseConfetti() {
+
 		if (dark) {
 			$('#dark').hide();
 			$('body').css('background-color', 'pink');
@@ -224,21 +226,21 @@ $(document).on('ready', function () {
 			$('#pull_me').hide();
 			dark = false;
 		}
-
 		hooray_sound.play();
-		makeConfetti(8);
+		a_little_love_sound.play();
+		makeConfetti();
 	}
 
 	function makeConfetti(times) {
 		var times = times ? times : 0;
-		for (var i = 0; i < 50; i++) {
+		for (var i = 0; i < 30; i++) {
 			confetti.push(new Confetti);
 		}
 
-		if (times < 12) {
+		if (times < 30) {
 			setTimeout(function () {
 				makeConfetti(times + 1);
-			}, 50);
+			}, 100);
 		}
 	}
 
