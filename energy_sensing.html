@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="static/css/app.css">
+	<link href='https://fonts.googleapis.com/css?family=Aladin' rel='stylesheet'>
+	<title>Energy Sensing</title>
+
+	<style type="text/css">
+		body {
+			font-family: 'Aladin';font-size: 22px;
+		}
+	</style>
+</head>
+<body class="container">
+	<h4>Energy Sensing</h4>
+	<p>Hello, young man, trong 4 tấm hình này, có 2 tích cực, vui vẻ, 2 tấm tiêu cực, chết chóc. 4 tấm hình này được chỉnh opacity = 0 để mắt không nhìn thấy được. Thử cảm nhận năng lượng của từng tấm rồi chỉ ra tấm nào positive/negative.</p>
+
+	<div style="text-align: center">
+		<div id="img-display" style="display: inline-block;"></div>	
+		<br>
+		<button onclick="showImage()">Show Image</button>
+		<button onclick="showDesc()">Show Description</button>
+		<button onclick="reset()">Reset</button>
+	</div>
+
+
+	<script type="text/javascript">
+
+		/*** Declare data ***/
+		var data = {
+			image_path: "static/energy_sensing",
+			images: [
+				{
+					origin_name: "positive_1.jpg",
+					name: "positive_1_processed.jpg",
+					alt: "3 happy fingers with faces",
+					state: "positive"
+				},
+				{
+					origin_name: "positive_2.jpg",
+					name: "positive_2_processed.jpg",
+					alt: "Happy exciting running puppy",
+					state: "positive"
+				},
+				{
+					origin_name: "negative_1.jpg",
+					name: "negative_1_processed.jpg",
+					alt: "A man being stab my a demon-like furious-deer",
+					state: "negative"
+				},
+				{
+					origin_name: "negative_2.jpg",
+					name: "negative_2_processed.jpg",
+					alt: "A black-shadow ghost girl in a dark room",
+					state: "negative"
+				}
+			]
+		}
+
+		var display = function() {
+			var displayDiv = document.getElementById("img-display");
+			shuffleArray(data.images);
+
+			var count = 0;
+			data.images.forEach((img) => {
+				count += 1;
+
+				var imgTag = document.createElement("img");
+				imgTag.setAttribute("src", data.image_path + "/" + img.name);
+				imgTag.setAttribute("height", "250px");
+				imgTag.setAttribute("width", "300px");
+				imgTag.setAttribute("data-origin-src", data.image_path + "/" + img.origin_name);
+				imgTag.setAttribute("data-src", data.image_path + "/" + img.name);
+
+				var caption = document.createElement("figcaption");
+				caption.setAttribute("data-desc", img.state + " - " + img.alt);
+				caption.innerHTML = "Figure " + count;
+
+				var div = document.createElement("div");
+				div.setAttribute("style", "margin-bottom: 50px; margin-right: 50px; display: inline-block");
+
+
+				div.appendChild(imgTag);
+				div.appendChild(caption);
+				displayDiv.appendChild(div);
+
+				if (count === 2) {
+					displayDiv.appendChild(document.createElement("br"));
+				}
+			});
+		}
+
+		var showImage = function() {
+			var images = document.getElementsByTagName("img");
+			Array.from(images).forEach((img) => {
+				img.setAttribute("src", img.getAttribute("data-origin-src"));
+			});
+		};
+
+		var showDesc = function() {
+			var captions = document.getElementsByTagName("figcaption");
+			Array.from(captions).forEach((caption) => {
+				caption.innerHTML = caption.getAttribute("data-desc");
+			});	
+		}
+
+		var reset = function() {
+			var images = document.getElementsByTagName("img");
+			Array.from(images).forEach((img) => {
+				img.setAttribute("src", img.getAttribute("data-src"));
+			});
+
+			var captions = document.getElementsByTagName("figcaption");
+			Array.from(captions).forEach((caption, i) => {
+				caption.innerHTML = "Figure " + i;
+			});
+		}
+
+		function shuffleArray(array) {
+		    for (let i = array.length - 1; i > 0; i--) {
+		        const j = Math.floor(Math.random() * (i + 1));
+		        [array[i], array[j]] = [array[j], array[i]];
+		    }
+		}
+
+		display();
+	</script>
+
+</body>
+</html>
