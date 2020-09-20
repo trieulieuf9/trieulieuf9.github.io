@@ -24,7 +24,7 @@
 </head>
 <body class="container">
 	<h4>Energy Sensing</h4>
-	<p>Hello, young man, trong 4 tấm hình này, có 2 tích cực, vui vẻ, 2 tấm tiêu cực, chết chóc. Hình được chỉnh opacity = 0 để mắt không nhìn thấy được. Nhưng bạn có thể cảm nhận năng lượng của từng tấm phát ra, hình tiêu cực sẽ làm bạn cảm thấy nặng hơn, thử đi.</p>
+	<p>Hello, young man, trong 4 tấm hình này, có 2 tích cực, vui vẻ, 2 tấm tiêu cực, chết chóc. Hình được chỉnh opacity = 0 để mắt không nhìn thấy được. Nhưng bạn có thể cảm nhận năng lượng của từng tấm phát ra, hình tiêu cực sẽ làm bạn cảm thấy nặng hơn.</p>
 
 	<div style="text-align: center">
 		<div id="img-display" style="display: inline-block;"></div>	
@@ -116,16 +116,20 @@
 		}
 
 		var reset = function() {
-			var images = document.getElementsByTagName("img");
-			shuffleArray(images);
-			Array.from(images).forEach((img) => {
-				img.setAttribute("src", img.getAttribute("data-src"));
-			});
+			document.getElementById("img-display").innerHTML = "";
+			display();
 
-			var captions = document.getElementsByTagName("figcaption");
-			Array.from(captions).forEach((caption, i) => {
-				caption.innerHTML = "Figure " + (i + 1);
-			});
+
+			// var images = document.getElementsByTagName("img");
+			// shuffleArray(images);
+			// Array.from(images).forEach((img) => {
+			// 	img.setAttribute("src", img.getAttribute("data-src"));
+			// });
+
+			// var captions = document.getElementsByTagName("figcaption");
+			// Array.from(captions).forEach((caption, i) => {
+			// 	caption.innerHTML = "Figure " + (i + 1);
+			// });
 		}
 
 		function shuffleArray(array) {
