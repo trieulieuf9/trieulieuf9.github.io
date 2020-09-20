@@ -117,6 +117,7 @@
 
 		var reset = function() {
 			var images = document.getElementsByTagName("img");
+			shuffleArray(images);
 			Array.from(images).forEach((img) => {
 				img.setAttribute("src", img.getAttribute("data-src"));
 			});
