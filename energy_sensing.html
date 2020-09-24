@@ -20,6 +20,21 @@
 		body {
 			font-family: 'Aladin';font-size: 22px;
 		}
+
+		.left-img {
+			margin-right: 400px; 
+			display: inline-block;
+		}
+
+		.right-img {
+			display: inline-block;
+		}
+
+		.above-img {
+			margin-bottom: 150px; 
+		}
+
+
 	</style>
 </head>
 <body class="container">
@@ -72,9 +87,8 @@
 			var displayDiv = document.getElementById("img-display");
 			shuffleArray(data.images);
 
-			var count = 0;
-			data.images.forEach((img) => {
-				count += 1;
+			data.images.forEach((img, index) => {
+				index += 1;
 
 				var imgTag = document.createElement("img");
 				imgTag.setAttribute("src", data.image_path + "/" + img.name);
@@ -85,17 +99,24 @@
 
 				var caption = document.createElement("figcaption");
 				caption.setAttribute("data-desc", img.state + " - " + img.alt);
-				caption.innerHTML = "Figure " + count;
+				caption.innerHTML = "Image " + index;
 
 				var div = document.createElement("div");
-				div.setAttribute("style", "margin-bottom: 50px; margin-right: 200px; display: inline-block");
-
+				if (index == 1 || index == 3) {
+					div.setAttribute("class", div.getAttribute("class") + " " + "left-img");
+				}
+				if (index == 2 || index == 4) {
+					div.setAttribute("class", div.getAttribute("class") + " " + "right-img");
+				}
+				if (index == 1 || index == 2) {
+					div.setAttribute("class", div.getAttribute("class") + " " + "above-img");
+				}
 
 				div.appendChild(imgTag);
 				div.appendChild(caption);
 				displayDiv.appendChild(div);
 
-				if (count === 2) {
+				if (index === 2) {
 					displayDiv.appendChild(document.createElement("br"));
 				}
 			});
