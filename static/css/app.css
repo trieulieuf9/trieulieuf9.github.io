@@ -1,29 +1,36 @@
 body {
   /*font-family: "Courier New", Courier, monospace;*/
-  /*font-family: "Lucida Console", Monaco, monospace;*/
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  
+  font-family: "Lucida Console", Monaco, monospace;
+  /*font-family: "Comic Sans MS", cursive, sans-serif;*/
 }
 
-/* This code is grabbed from Bootstrap*/
+/* 
+  Trust only in source young Luke:
+  This code is grabbed from Bootstrap
+ */
 .container {
-  padding-right: 15px;
+  margin: 0 auto;
+  width: 70%;
+  /*padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: auto;*/
 }
 @media (min-width: 768px) {
   .container {
-    width: 750px;
+    /*width: 750px;*/
+    width: 80%;
   }
 }
 @media (min-width: 992px) {
   .container {
-    width: 970px;
+    /*width: 970px;*/
+    width: 70%;
   }
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    /*width: 1170px;*/
+    width: 65%;
   }
 }
