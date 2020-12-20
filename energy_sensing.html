@@ -13,12 +13,20 @@
 
 	<link rel="stylesheet" type="text/css" href="static/css/app.css">
 	<link href='https://fonts.googleapis.com/css?family=Aladin' rel='stylesheet'>
-	<title>Energy Sensing</title>
 	<meta charset="utf-8" />
+	<title>Energy Sensing</title>
 
 	<style type="text/css">
 		body {
 			font-family: 'Aladin';font-size: 22px;
+		}
+
+		button {
+			height: 30px;
+		}
+
+		#img-display {
+			margin-bottom: 50px;
 		}
 
 		.left-img {
@@ -34,14 +42,21 @@
 			margin-bottom: 150px; 
 		}
 
+		.button-group {
+			text-align: center;
+			margin-bottom: 130px;
+		}
+
 
 	</style>
 </head>
 <body class="container">
 	<h4>Energy Sensing</h4>
-	<p>Hello, young man, trong 4 tấm hình này, có 2 tích cực, vui vẻ, 2 tấm tiêu cực, chết chóc. Hình được chỉnh opacity = 0 để mắt không nhìn thấy được. Nhưng bạn có thể cảm nhận năng lượng của từng tấm phát ra, hình tiêu cực sẽ làm bạn cảm thấy nặng hơn.</p>
+	<p>Hello, young man, among these four pictures, two of them featuring positive things, two of them featuring negative, horror things. Their opacity are decreased to 0 so you cannot discern with your eyes. But, you can still feel their energy, try to feel it and point out which are positive and which are negative</p>
 
-	<div style="text-align: center">
+	<br>
+	<br>
+	<div class="button-group">
 		<div id="img-display" style="display: inline-block;"></div>	
 		<br>
 		<button onclick="showImage()">Show Image</button>
