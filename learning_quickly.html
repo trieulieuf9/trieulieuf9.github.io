@@ -10,42 +10,14 @@
 	  gtag('config', 'UA-119557099-2');
 	</script>
 
-	<link rel="stylesheet" type="text/css" href="static/css/app.css">
-	<title>Learning Quickly</title>
 	<meta charset="utf-8" />
+	<title>Learning Quickly</title>
+
+	<link rel="stylesheet" type="text/css" href="static/css/app.css">
+	<script type="text/javascript" src="static/js/app.js"></script>
 
 	<script type="text/javascript">
-
-		function writeContent(content) {
-			parts = content.split("\n"); // split on newline
-
-			parts.forEach(function(part) {
-			  	if (part === "") {
-			  		document.body.innerHTML += "<br><br>\n"
-			  	} else if (part.startsWith("{{artwork}}")) {
-			  		_insertArtwork(part);
-			  	} else {
-			  		document.body.innerHTML += `<span>${part}<span>\n`
-			  	}
-			});
-		}
-
-		function _insertArtwork(artworkContainer) {
-			var artworkName = artworkContainer.split("-")[1];
-
-			fetch(`artworks/${artworkName}`)
-			  	.then(response => response.text())
-			  	.then((content) => {
-			  		console.log(artworkContainer, document.body.innerHTML);
-			   		document.body.innerHTML = `<pre>${content}</pre>\n${document.body.innerHTML}`;
-			});
-		}
-
-		fetch("contents/learning_quickly.txt")
-		  	.then(response => response.text())
-		  	.then((content) => {
-		   		writeContent(content);
-		});
+		load("contents/learning_quickly.txt");
 	</script>
 </head>
 <body class="container">

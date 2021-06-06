@@ -1,6 +1,8 @@
 body {
-  /*font-family: "Courier New", Courier, monospace;*/
+  background-color: #f1dabf;
   font-family: "Lucida Console", Monaco, monospace;
+  /*font-family: "Courier New", Courier, monospace;*/
+  
   /*font-family: "Comic Sans MS", cursive, sans-serif;*/
 }
 
@@ -11,10 +13,6 @@ body {
 .container {
   margin: 0 auto;
   width: 70%;
-  /*padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;*/
 }
 @media (min-width: 768px) {
   .container {
